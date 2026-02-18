@@ -29,7 +29,7 @@
         <option value="Civil">Civil</option>
         <option value="Mechanical">Mechanical</option>
         <option value="Biotechnology">Biotechnology</option>
-         <option value="Electronics & Communication">Electronics & Communication</option>
+        <option value="Electronics & Communication">Electronics & Communication</option>
       </select>
     </div>
 
@@ -48,18 +48,28 @@
     <!-- Semester Selection -->
     <div class="box" id="semBox" style="display:none;">
       <label>Select Semester:</label>
-      <select id="semester" onchange="showDownload()">
+      <select id="semester" onchange="showpaper()">
         <option value="">-- Choose Semester --</option>
       </select>
     </div>
 
+    <!-- Paper Selection -->
+    <div class="box" id="paperBox" style="display:none;">
+      <label>Select Paper:</label>
+      <select id="paper" onchange="showDownload()">
+        <option value="">-- Choose Paper --</option>
+      </select>
+    </div>
+
     <!-- Download Section -->
-     <div class="downloadBox" id="downloadBox" style="display:none;">
-  <h2>Available Quesion Papers & Solution</h2>
-  <div id="paperList"></div>
-  <p id="result"></p>
-</div>
+    <div class="downloadBox" id="downloadBox" style="display:none;">
+      <h2>Available Question Papers & Solution</h2>
+      <div id="paperList"></div>
+      <p id="result"></p>
+    </div>
+
   </div>
+
   <div class="bubbles">
     <img src="./images/bubble.png" alt="">
     <img src="./images/bubble.png" alt="">
@@ -69,7 +79,7 @@
     <img src="./images/bubble.png" alt="">
     <img src="./images/bubble.png" alt="">
   </div>
+
   <script src="first.js"></script>
 </body>
-
 </html>

@@ -25,6 +25,7 @@
       <div class="box">
         <label>Select Branch:</label>
         <select name="branch" required>
+          <option value="">-- Choose Branch --</option>
           <option value="CSD">CSD</option>
           <option value="CSE">CSE</option>
           <option value="AIML">AIML</option>
@@ -40,7 +41,6 @@
       <!-- Year -->
       <div class="box">
         <label>Select Year:</label>
-        <!-- ✅ Added id="year" -->
         <select name="year" id="year" required onchange="showSemester()">
           <option value="">-- Choose Year --</option>
           <option value="1st">1st Year</option>
@@ -53,8 +53,16 @@
       <!-- Semester -->
       <div class="box" id="semBox" style="display:none;">
         <label>Select Semester:</label>
-        <select id="semester" name="semester" required>
+        <select id="semester" name="semester" required onchange="showpaper()">
           <option value="">-- Choose Semester --</option>
+        </select>
+      </div>
+
+      <!-- Paper Selection -->
+      <div class="box" id="paperBox" style="display:none;">
+        <label>Select Paper:</label>
+        <select id="paper" name="paper" required>
+          <option value="">-- Choose Paper --</option>
         </select>
       </div>
 
@@ -63,7 +71,7 @@
         <label>File Type:</label>
         <select name="type" required>
           <option value="question">Question Paper</option>
-          <option value="solution"> Paper Solution</option>
+          <option value="solution">Paper Solution</option>
         </select>
       </div>
 

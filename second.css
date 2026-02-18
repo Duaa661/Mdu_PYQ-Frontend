@@ -45,10 +45,24 @@ body {
       background-color: #c7d2e3;
 
 }
+select {
+    background-color: #2c191a; /* light red for unselected */
+    color: #333;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* when a valid option is selected */
+select:valid {
+    background-color: #d1f0d1; /* light green when selected */
+    color: #000;
+}
 
 .container {
   width: 482px;
   background: white;
+   background-image: url("./images/background.png");
   z-index: 100;
   padding: 30px;
   border-radius: 15px;
@@ -62,7 +76,7 @@ h1 {
 }
 
 p {
-  color: gray;
+  color: rgb(190, 17, 17);
 }
 
 .box {
