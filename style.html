@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDU PYQ Download</title>
+  <link rel="stylesheet" href="second.css">
+</head>
+<body>
+  
+  <!-- ===== TOP HEADER LOGO ===== -->
+    <div class="header">
+        <img src="https://dgi230notes.weebly.com/uploads/8/4/7/1/84714230/published/bitmap8663660307655580070.png?1571066066" alt="Office Logo">
+    </div>
+
+  <!-- Main Container -->
+  <div class="container">
+
+    <!-- Heading -->
+    <h1>MDU ROHTAK (B.TECH) PREVIOUS YEAR QUESTION PAPER</h1>
+    <p>Select your Branch, Year and Semester to Download Papers</p>
+
+    <!-- Branch Selection -->
+    <div class="box">
+      <label>Select Branch:</label>
+      <select id="branch" onchange="showYear()">
+        <option value="">-- Choose Branch --</option>
+        <option value="CSD">CSD</option>
+        <option value="CSE">CSE</option>
+        <option value="AIML">AIML</option>
+        <option value="AIDS">AIDS</option>
+        <option value="RAI">RAI</option>
+        <option value="Civil">Civil</option>
+        <option value="Mechanical">Mechanical</option>
+        <option value="Biotechnology">Biotechnology</option>
+         <option value="Electronics & Communication">Electronics & Communication</option>
+      </select>
+    </div>
+
+    <!-- Year Selection -->
+    <div class="box" id="yearBox" style="display:none;">
+      <label>Select Year:</label>
+      <select id="year" onchange="showSemester()">
+        <option value="">-- Choose Year --</option>
+        <option value="1st">1st Year</option>
+        <option value="2nd">2nd Year</option>
+        <option value="3rd">3rd Year</option>
+        <option value="4th">4th Year</option>
+      </select>
+    </div>
+
+    <!-- Semester Selection -->
+    <div class="box" id="semBox" style="display:none;">
+      <label>Select Semester:</label>
+      <select id="semester" onchange="showDownload()">
+        <option value="">-- Choose Semester --</option>
+      </select>
+    </div>
+
+    <!-- Download Section -->
+     <div class="downloadBox" id="downloadBox" style="display:none;">
+  <h2>Available Quesion Papers & Solution</h2>
+  <div id="paperList"></div>
+  <p id="result"></p>
+</div>
+  </div>
+  <script src="first.js"></script>
+</body>
+
+</html>

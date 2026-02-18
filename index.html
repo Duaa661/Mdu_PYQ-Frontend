@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MDU Rohtak PYQ Portal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Navbar -->
+    <nav class="flex justify-between items-center p-6 bg-white shadow-sm">
+        <div class="flex items-center space-x-2">
+            <div class="logo-box">M</div>
+            <span class="portal-title">MDU PORTAL</span>
+        </div>
+
+        <button id="menuBtn" class="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+            
+        </button>
+
+        <div id="dropdownMenu" class="dropdown hidden">
+            <option value="">Select Option</option>
+            <option value="/syllabus">Syllabus of MDU Rohtak</option>
+            <option value="/question-papers">Previous Year Question Paper(PYQ)</option>
+            <option value="/notes">Handwritten Notes</option>
+            <option value="/revision">Revision Papers(RG)</option>
+        </div>
+        
+    </nav>
+
+
+    <!-- Header -->
+    <!-- Header -->
+<header class="text-center py-16 px-4">
+
+    <h1 class="main-heading">
+        MDU Rohtak PYQ
+    </h1>
+
+    <hr class="divider">
+
+    <div class="search-box">
+        <input
+            id="searchCourse"
+            type="text"
+            placeholder="Search course..."
+            class="search-input"
+            readonly
+        >
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+
+        <!-- Course Dropdown -->
+        <div id="courseDropdown" class="course-dropdown hidden">
+
+            <!-- UG -->
+            <div class="box">
+                <p class="dropdown-title">Undergraduate Courses (UG)</p>
+                <div class="course-item" data-link="http://127.0.0.1:5500/style.html">B.Tech
+                </div> 
+                <div class="course-item">BCA (Bachelor of Computer Applications)</div>
+                <div class="course-item">B.Pharma (Bachelor of Pharmacy)</div>
+                <div class="course-item">B.Com (Bachelor of Commerce)</div>
+                <div class="course-item">B.A (Bachelor of Arts)</div>
+            </div>
+
+            <!-- PG -->
+            <div class="box">
+                <p class="dropdown-title">Postgraduate Courses (PG)</p>
+                <div class="course-item">M.Tech</div>
+                <div class="course-item">MBA (Master of Business Administration)</div>
+                <div class="course-item">M.Sc (Master of Science)</div>
+                <div class="course-item">M.Com (Master of Commerce)</div>
+                <div class="course-item">M.Ed (Master of Education)</div>
+            </div>
+
+            <!-- PhD -->
+            <div class="box">
+                <p class="dropdown-title">Doctoral Programs</p>
+                <div class="course-item">Ph.D</div>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+
+    <!-- Features Section -->
+    <section class="features-section">
+
+        <div class="feature-card">
+            <i class="fa-solid fa-book-open feature-icon"></i>
+            <div>
+                <h3>Imp. Topics</h3>
+                <p>Most repeated questions analyzed.</p>
+            </div> 
+        </div>
+
+git         <div class="feature-card">
+            <i class="fa-solid fa-download feature-icon"></i>
+            <div>
+                <h3>Easy Downloads</h3>
+                <p>One-click PDF downloads.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-users feature-icon"></i>
+            <div>
+                <h3>Community Support</h3>
+                <p>Discuss solutions with peers.</p>
+            </div>
+        </div>
+
+        <div class="feature-card">
+            <i class="fa-solid fa-mobile-screen-button feature-icon"></i>
+            <div>
+                <h3>Offline Access</h3>
+                <p>Access content without internet.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="free-badge">100% Free</div>
+
+        <div>
+            <h4>Our Mission</h4>
+            <p>"Built for Students, by Students"</p>
+        </div>
+    </footer>
+
+    <!-- External JS -->
+    <script src="script.js"></script>
+    
+
+</body>
+</html>

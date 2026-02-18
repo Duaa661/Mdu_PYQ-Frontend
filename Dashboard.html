@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="DashBoard.js" defer></script>
+    <link rel="stylesheet" href="DashBoard.css">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+
+  <div class="header">
+    <h2>Admin Dashboard - Upload Papers</h2>
+    <button onclick="logout()" class="logout-btn">Logout</button>
+  </div>
+
+  <div class="container">
+
+    <h1>Upload Question Paper / Solution</h1>
+    <p>Select Branch, Year, Semester and Upload File</p>
+
+    <form id="uploadForm">
+
+      <!-- Branch -->
+      <div class="box">
+        <label>Select Branch:</label>
+        <select name="branch" required>
+          <option value="CSD">CSD</option>
+          <option value="CSE">CSE</option>
+          <option value="AIML">AIML</option>
+          <option value="AIDS">AIDS</option>
+          <option value="RAI">RAI</option>
+          <option value="Civil">Civil</option>
+          <option value="Mechanical">Mechanical</option>
+          <option value="Biotechnology">Biotechnology</option>
+          <option value="Electronics & Communication">Electronics & Communication</option>
+        </select>
+      </div>
+
+      <!-- Year -->
+      <div class="box">
+        <label>Select Year:</label>
+        <!-- ✅ Added id="year" -->
+        <select name="year" id="year" required onchange="showSemester()">
+          <option value="">-- Choose Year --</option>
+          <option value="1st">1st Year</option>
+          <option value="2nd">2nd Year</option>
+          <option value="3rd">3rd Year</option>
+          <option value="4th">4th Year</option>
+        </select>
+      </div>
+
+      <!-- Semester -->
+      <div class="box" id="semBox" style="display:none;">
+        <label>Select Semester:</label>
+        <select id="semester" name="semester" required>
+          <option value="">-- Choose Semester --</option>
+        </select>
+      </div>
+
+      <!-- Type -->
+      <div class="box">
+        <label>File Type:</label>
+        <select name="type" required>
+          <option value="question">Question Paper</option>
+          <option value="solution"> Paper Solution</option>
+        </select>
+      </div>
+
+      <!-- File Upload -->
+      <div class="box">
+        <label>Upload PDF:</label>
+        <input type="file" name="file" accept=".pdf" required>
+      </div>
+
+      <button type="submit" class="upload-btn">Upload File</button>
+
+    </form>
+
+    <p id="message"></p>
+
+  </div>
+
+</body>
+</html>
