@@ -148,3 +148,28 @@ document.addEventListener("click", (e) => {
         dropdown.classList.add("hidden");
     }
 });
+
+
+
+
+const texts = [
+    "Syllabus of MDU Rohtak",
+    "Previous Year Paper ",
+    "Handwritten Notes",
+    "Revision Papers (RG)"
+];
+
+let index = 0;
+const textElement = document.getElementById("changingText");
+
+function changeText() {
+    textElement.style.opacity = 0;
+
+    setTimeout(() => {
+        index = (index + 1) % texts.length;
+        textElement.textContent = texts[index];
+        textElement.style.opacity = 1;
+    }, 500);
+}
+
+setInterval(changeText, 2500);

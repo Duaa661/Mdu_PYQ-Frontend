@@ -14,7 +14,6 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
 </head>
 
 <body class="bg-gray-50 text-gray-800 font-sans">
@@ -25,43 +24,43 @@
             <div class="logo-box">M</div>
             <span class="portal-title">MDU PORTAL</span>
         </div>
-            <nav id="header-list">
-      <ul class="flex space-x-8 font-medium text-gray-700">
-        <li>
-          <a href="#" class="hover:text-blue-600 transition duration-300">
-            Syllabus of MDU Rohtak
-          </a>
-        </li>
 
-        <li>
-          <a href="#" class="hover:text-blue-600 transition duration-300">
-            Previous Year Question Paper (PYQ)
-          </a>
-        </li>
+        <nav id="header-list">
+            <ul class="flex space-x-8 font-medium text-gray-700">
+                <li>
+                    <a href="#" class="hover:text-blue-600 transition duration-300">
+                        Syllabus of MDU Rohtak
+                    </a>
+                </li>
 
-        <li>
-          <a href="#" class="hover:text-blue-600 transition duration-300">
-            Handwritten Notes
-          </a>
-        </li>
+                <li>
+                    <a href="#" class="hover:text-blue-600 transition duration-300">
+                        Previous Year Question Paper (PYQ)
+                    </a>
+                </li>
 
-        <li>
-          <a href="#" class="hover:text-blue-600 transition duration-300">
-            Revision Papers (RG)
-          </a>
-        </li>
+                <li>
+                    <a href="#" class="hover:text-blue-600 transition duration-300">
+                        Handwritten Notes
+                    </a>
+                </li>
 
-        <li>
-          <a href="Admin.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
-            Admin
-          </a>
-        </li>
-      </ul>
-    </nav>
+                <li>
+                    <a href="#" class="hover:text-blue-600 transition duration-300">
+                        Revision Papers (RG)
+                    </a>
+                </li>
 
-        <button id="menuBtn" class="menu-btn" hidden>
+                <li>
+                    <a href="Admin.html" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
+                        Admin
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <button id="menuBtn" class="menu-btn">
             <i class="fa-solid fa-bars"></i>
-            
         </button>
 
         <div id="dropdownMenu" class="dropdown hidden">
@@ -71,64 +70,60 @@
             <option value="/notes">Handwritten Notes</option>
             <option value="/revision">Revision Papers(RG)</option>
         </div>
-        
     </nav>
 
-
     <!-- Header -->
-    <!-- Header -->
-<header class="text-center py-16 px-4">
+    <header class="text-center py-16 px-4">
 
-    <h1 class="main-heading portal-title">
-        MDU Rohtak PYQ
-    </h1>
+      <h1 id="changingText"
+    class="main-heading text-2xl sm:text-2xl md:text-4xl lg:text-5xl whitespace-nowrap overflow-hidden">
+    Syllabus of MDU Rohtak
+</h1>
 
-    <hr class="divider">
+        <hr class="divider">
 
-    <div class="search-box">
-        <input
-            id="searchCourse"
-            type="text"
-            placeholder="Search course..."
-            class="search-input"
-            readonly
-        >
-        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <div class="search-box">
+            <input
+                id="searchCourse"
+                type="text"
+                placeholder="Search course..."
+                class="search-input"
+                readonly
+            >
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
 
-        <!-- Course Dropdown -->
-        <div id="courseDropdown" class="course-dropdown hidden">
+            <!-- Course Dropdown -->
+            <div id="courseDropdown" class="course-dropdown hidden">
 
-            <!-- UG -->
-            <div class="box">
-                <p class="dropdown-title">Undergraduate Courses (UG)</p>
-                <div class="course-item" data-link="http://127.0.0.1:5500/style.html">B.Tech
-                </div> 
-                <div class="course-item">BCA (Bachelor of Computer Applications)</div>
-                <div class="course-item">B.Pharma (Bachelor of Pharmacy)</div>
-                <div class="course-item">B.Com (Bachelor of Commerce)</div>
-                <div class="course-item">B.A (Bachelor of Arts)</div>
+                <!-- UG -->
+                <div class="box">
+                    <p class="dropdown-title">Undergraduate Courses (UG)</p>
+                    <div class="course-item" data-link="http://127.0.0.1:5500/style.html">B.Tech</div> 
+                    <div class="course-item">BCA (Bachelor of Computer Applications)</div>
+                    <div class="course-item">B.Pharma (Bachelor of Pharmacy)</div>
+                    <div class="course-item">B.Com (Bachelor of Commerce)</div>
+                    <div class="course-item">B.A (Bachelor of Arts)</div>
+                </div>
+
+                <!-- PG -->
+                <div class="box">
+                    <p class="dropdown-title">Postgraduate Courses (PG)</p>
+                    <div class="course-item">M.Tech</div>
+                    <div class="course-item">MBA (Master of Business Administration)</div>
+                    <div class="course-item">M.Sc (Master of Science)</div>
+                    <div class="course-item">M.Com (Master of Commerce)</div>
+                    <div class="course-item">M.Ed (Master of Education)</div>
+                </div>
+
+                <!-- PhD -->
+                <div class="box">
+                    <p class="dropdown-title">Doctoral Programs</p>
+                    <div class="course-item">Ph.D</div>
+                </div>
+
             </div>
-
-            <!-- PG -->
-            <div class="box">
-                <p class="dropdown-title">Postgraduate Courses (PG)</p>
-                <div class="course-item">M.Tech</div>
-                <div class="course-item">MBA (Master of Business Administration)</div>
-                <div class="course-item">M.Sc (Master of Science)</div>
-                <div class="course-item">M.Com (Master of Commerce)</div>
-                <div class="course-item">M.Ed (Master of Education)</div>
-            </div>
-
-            <!-- PhD -->
-            <div class="box">
-                <p class="dropdown-title">Doctoral Programs</p>
-                <div class="course-item">Ph.D</div>
-            </div>
-
         </div>
-    </div>
-</header>
-
+    </header>
 
     <!-- Features Section -->
     <section class="features-section">
@@ -140,7 +135,8 @@
                 <p>Most repeated questions analyzed.</p>
             </div> 
         </div>
-     <div class="feature-card">
+
+        <div class="feature-card">
             <i class="fa-solid fa-download feature-icon"></i>
             <div>
                 <h3>Easy Downloads</h3>
@@ -178,7 +174,6 @@
 
     <!-- External JS -->
     <script src="script.js"></script>
-    
 
 </body>
 </html>
