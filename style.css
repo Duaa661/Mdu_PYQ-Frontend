@@ -256,3 +256,18 @@ body{
         transform: translateY(0);
     }
 }
+
+/* Hide by default */
+#menuBtn {
+    display: none;
+}
+
+/* Show on Mobile and Tablet */
+@media (max-width: 1024px) {
+    #menuBtn {
+        display: block;
+    }
+    #header-list{
+        display: none;
+    }
+}
