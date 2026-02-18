@@ -5,6 +5,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  flex-direction: column;
 
     .header {
             
@@ -37,10 +38,10 @@ body {
     
 
  /* MDU Logo Background */
-      background-image: url("https://th.bing.com/th/id/R.e7916d23b16579e40b96abeed4511256?rik=sTuJINaG0huwXw&riu=http%3a%2f%2fwww.aplomb.in%2fimages%2fmdu.png&ehk=F9r8tJNfXLVTIPK9x55SxzQ79gK7PW7uERPIgipEwgE%3d&risl=&pid=ImgRaw&r=0"); /* add logo image */
+      background-image: url("./images/background.png"); /* add logo image */
       background-repeat: no-repeat;
       background-position: center;
-      background-size: 850px;
+      background-size: 100%;
       background-color: #c7d2e3;
 
 }
@@ -48,6 +49,7 @@ body {
 .container {
   width: 482px;
   background: white;
+  z-index: 100;
   padding: 30px;
   border-radius: 15px;
   text-align: center;
@@ -113,4 +115,65 @@ button:last-child {
   font-weight: bold;
   color: darkred;
 }
+
+.bubbles img{
+width: 50px;
+animation: bubble 7s linear infinite;
+}
+.bubbles{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  bottom: -70px;
+}
+@keyframes bubble {
+  0%{
+    transform: translateY(0);
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+  70%{
+    opacity: 1;
+  }
+  100%{
+    transform: translateY(-90vh);
+    opacity: 0;
+  }
+}
+
+
+.bubbles img:nth-child(1){
+  animation-delay:2s ;
+  width: 25px;
+}
+
+.bubbles img:nth-child(2){
+  animation-delay:1s ;
+}
+
+.bubbles img:nth-child(3){
+  animation-delay:3s ;
+  width: 25px;
+}
+
+.bubbles img:nth-child(4){
+  animation-delay:4.5s ;
+}
+.bubbles img:nth-child(5){
+  animation-delay:3s ;
+}
+.bubbles img:nth-child(6){
+  animation-delay:6s ;
+  width: 25px;
+}
+.bubbles img:nth-child(7){
+  animation-delay:7s ;
+  width: 35px;
+}
+
+
 
