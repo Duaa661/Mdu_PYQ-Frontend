@@ -1,3 +1,15 @@
+document.addEventListener("DOMContentLoaded", function () {
+  // Check for token
+  const token = localStorage.getItem("token");
+  if (!token) {
+    // Redirect to login page if no token
+    window.location.href = "admin.html";
+    return; // Stop executing further
+  }
+
+  // Rest of your code can go here...
+});
+
 // ===============================
 // SHOW SEMESTERS
 // ===============================
@@ -88,6 +100,14 @@ function addPaper(paperList) {
 // FORM SUBMIT (UPLOAD FILE)
 // ===============================
 document.addEventListener("DOMContentLoaded", function () {
+  // ===== TOKEN CHECK =====
+  const token = localStorage.getItem("token");
+  if (!token) {
+    window.location.href = "admin.html";
+    return;
+  }
+
+  // ===== FORM SUBMIT =====
   const form = document.getElementById("uploadForm");
 
   form.addEventListener("submit", async function (e) {
@@ -98,7 +118,10 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const res = await fetch("http://localhost:5000/api/admin/upload", {
         method: "POST",
-        body: formData
+        body: formData,
+        headers: {
+          Authorization: `Bearer ${token}` // include token in request if API requires
+        }
       });
 
       const data = await res.json();
@@ -119,6 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
 
 // ===============================
 // LOGOUT
