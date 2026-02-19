@@ -5,6 +5,7 @@ function showYear() {
   const branch = document.getElementById("branch").value;
   document.getElementById("yearBox").style.display =
     branch !== "" ? "block" : "none";
+  resetDownload();
 }
 
 /* ==============================
@@ -35,6 +36,7 @@ function showSemester() {
   }
 
   semBox.style.display = year !== "" ? "block" : "none";
+  resetDownload();
 }
 
 /* ==============================
@@ -69,35 +71,78 @@ function showpaper() {
   }
 
   paperBox.style.display = semester !== "" ? "block" : "none";
+  resetDownload();
+}
+
+/* ==============================
+   SHOW SON
+================================= */
+function showSon() {
+  const paper = document.getElementById("paper").value;
+  document.getElementById("SonBox").style.display =
+    paper !== "" ? "block" : "none";
+  resetDownload();
+}
+/* ==============================
+   RESET DOWNLOAD AREA (CLEAR ONLY)
+================================= */
+function resetDownload() {
+  const downloadBox = document.getElementById("downloadBox");
+  const paperList = document.getElementById("paperList");
+  const result = document.getElementById("result");
+
+  paperList.innerHTML = "";
+  result.innerHTML = "";
+  downloadBox.style.display = "none"; // hide until ready
+}
+
+/* ==============================
+   SHOW ERROR IF ANY FIELD MISSING
+================================= */
+function checkAndShowError() {
+  const downloadBox = document.getElementById("downloadBox");
+  const result = document.getElementById("result");
+
+  const branch = document.getElementById("branch").value;
+  const year = document.getElementById("year").value;
+  const semester = document.getElementById("semester").value;
+  const paper = document.getElementById("paper").value;
+  const son = document.getElementById("son").value;
+
+  if (!branch || !year || !semester || !paper || !son) {
+    downloadBox.style.display = "block";
+    result.innerHTML = "❌ Please select all filters to see available papers.";
+    return true;
+  }
+  return false;
 }
 
 /* ==============================
    SHOW DOWNLOAD (MAIN FILTER)
 ================================= */
 async function showDownload() {
+  if (checkAndShowError()) return; // stop if incomplete
+
   const branch = document.getElementById("branch").value.toLowerCase();
   const year = document.getElementById("year").value.toLowerCase();
   const semester = document.getElementById("semester").value.toLowerCase();
   const paper = document.getElementById("paper").value.toLowerCase();
+  const son = document.getElementById("son").value;
 
-  if (!branch || !year || !semester || !paper) return;
+  const downloadBox = document.getElementById("downloadBox");
+  downloadBox.style.display = "block";
 
-  document.getElementById("downloadBox").style.display = "block";
-     console.log(branch,year,semester,paper)
   try {
     const res = await fetch(
-  `http://localhost:5000/api/admin/papers?branch=${branch.toLowerCase()}&year=${year.toLowerCase()}&semester=${semester.toLowerCase()}&paper=${paper.toLowerCase()}`
-);
+      `http://localhost:5000/api/admin/papers?branch=${encodeURIComponent(branch)}&year=${encodeURIComponent(year)}&semester=${encodeURIComponent(semester)}&paper=${encodeURIComponent(paper)}&son=${encodeURIComponent(son)}`
+    );
 
     const data = await res.json();
-    console.log(data)
-    console.log(data)
     const paperList = document.getElementById("paperList");
     paperList.innerHTML = "";
 
     if (!data || data.length === 0) {
-      paperList.innerHTML =
-        "<p style='color:red;'>❌ Question paper and solution are not uploaded.</p>";
+      paperList.innerHTML = "<p style='color:red;'>❌ This question paper and solution are not available at this time.</p>";
       return;
     }
 
@@ -119,68 +164,50 @@ async function showDownload() {
 }
 
 /* ==============================
+   EVENT LISTENERS
+================================= */
+document.querySelectorAll("#branch, #year, #semester, #paper, #son")
+  .forEach(el => el.addEventListener("change", () => {
+    resetDownload(); // always clear previous
+    // only show error if user interacted with all fields and something is missing
+    const branch = document.getElementById("branch").value;
+    const year = document.getElementById("year").value;
+    const semester = document.getElementById("semester").value;
+    const paper = document.getElementById("paper").value;
+    const son = document.getElementById("son").value;
+
+    if (branch && year && semester && paper && son) {
+      showDownload(); // fetch papers
+    }
+  }));
+
+/* ==============================
    DIRECT DOWNLOAD
 ================================= */
 function downloadFile(fileName) {
-  window.location.href =
-    `http://localhost:5000/api/download/${fileName}`;
+  window.location.href = `http://localhost:5000/api/download/${fileName}`;
 }
 
 /* ==============================
-   DOWNLOAD QUESTION PAPER
+   BACK BUTTON
 ================================= */
-async function downloadPaper() {
-  const branch = document.getElementById("branch").value.toLowerCase();
-  const year = document.getElementById("year").value.toLowerCase();
-  const semester = document.getElementById("semester").value.toLowerCase();
-  const paper = document.getElementById("paper").value.toLowerCase();
-  try {
-    const res = await fetch(
-      `http://localhost:5000/api/admin/papers?branch=${encodeURIComponent(branch)}&year=${encodeURIComponent(year)}&semester=${encodeURIComponent(semester)}&paper=${encodeURIComponent(paper)}&type=question`
-    );
-
-    const data = await res.json();
-
-    if (!data || data.length === 0) {
-      document.getElementById("result").innerHTML =
-        "❌ No Question Paper Available";
-      return;
-    }
-
-    window.location.href =
-      `http://localhost:5000/api/download/${data[0].fileUrl} `;
-
-  } catch (error) {
-    console.error("Error:", error);
-  }
+function goBack() {
+  window.location.href = "index.html"; // change to your previous page
 }
 
 /* ==============================
-   DOWNLOAD SOLUTION
+   EVENT LISTENERS TO UPDATE DOWNLOAD
 ================================= */
-async function downloadSolution() {
-  const branch = document.getElementById("branch").value.toLowerCase();
-  const year = document.getElementById("year").value.toLowerCase();
-  const semester = document.getElementById("semester").value.toLowerCase();
-  const paper = document.getElementById("paper").value.toLowerCase();
+document.querySelectorAll("#branch, #year, #semester, #paper, #son")
+  .forEach(el => el.addEventListener("change", () => {
+    resetDownload();
+    const branch = document.getElementById("branch").value;
+    const year = document.getElementById("year").value;
+    const semester = document.getElementById("semester").value;
+    const paper = document.getElementById("paper").value;
+    const son = document.getElementById("son").value;
 
-  try {
-    const res = await fetch(
-      `http://localhost:5000/api/admin/papers?branch=${encodeURIComponent(branch)}&year=${encodeURIComponent(year)}&semester=${encodeURIComponent(semester)}&paper=${encodeURIComponent(paper)}&type=solution`
-    );
-
-    const data = await res.json();
-
-    if (!data || data.length === 0) {
-      document.getElementById("result").innerHTML =
-        "❌ No Solution Available";
-      return;
+    if (branch && year && semester && paper && son) {
+      showDownload();
     }
-
-    window.location.href =
-      `http://localhost:5000/api/download/${data[0].fileUrl}`;
-
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
+  }));

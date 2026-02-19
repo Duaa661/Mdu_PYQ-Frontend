@@ -5,13 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MDU PYQ Download</title>
   <link rel="stylesheet" href="second.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-  
+
   <!-- ===== TOP HEADER LOGO ===== -->
   <!-- Main Container -->
   <div class="container">
-
+      <!-- Back Button -->
+       
+  <span class="back">
+  <i class="fa-solid fa-arrow-left"
+     style="position: absolute; top: 20px; left: 20px; cursor: pointer;"
+     onclick="goBack()"></i> 
+</span>
     <!-- Heading -->
     <h1>MDU ROHTAK (B.TECH) PREVIOUS YEAR QUESTION PAPER</h1>
     <p>Select your Branch, Year and Semester to Download Papers</p>
@@ -56,11 +63,21 @@
     <!-- Paper Selection -->
     <div class="box" id="paperBox" style="display:none;">
       <label>Select Paper:</label>
-      <select id="paper" onchange="showDownload()">
+      <select id="paper" onchange="showSon()">
         <option value="">-- Choose Paper --</option>
       </select>
     </div>
-
+          <!-- Sun Selection -->
+    <div class="box" id="SonBox" style="display:none;">
+      <label>Which Son Paper:</label>
+      <select id="son" onchange="showDownload()">
+        <option value="">-- Choose Which Son --</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+      </select>
+    </div>
     <!-- Download Section -->
     <div class="downloadBox" id="downloadBox" style="display:none;">
       <h2>Available Question Papers & Solution</h2>

@@ -59,13 +59,24 @@
       </div>
 
       <!-- Paper Selection -->
-      <div class="box" id="paperBox" style="display:none;">
+      <div class="box" id="paperBox" style="display:none;" onchange="showSon()">
         <label>Select Paper:</label>
         <select id="paper" name="paper" required>
           <option value="">-- Choose Paper --</option>
         </select>
       </div>
-
+        
+          <!-- Sun Selection -->
+    <div class="box" id="SonBox" style="display:none;">
+      <label>Which Son Paper:</label>
+      <select id="son"  name="son" required>
+        <option value="">-- Choose Son --</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+      </select>
+    </div>
       <!-- Type -->
       <div class="box">
         <label>File Type:</label>

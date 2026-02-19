@@ -23,3 +23,9 @@ document.querySelector("form").addEventListener("submit", async function(e) {
         alert(data.message);
     }
 });
+
+
+// go back
+function goBack() {
+  window.location.href = "index.html"; // change to your previous page
+}

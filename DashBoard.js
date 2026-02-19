@@ -66,6 +66,13 @@ function showpaper() {
   }
 }
 
+// Show Sun
+
+function showSon() {
+  const paper = document.getElementById("paperBox").value;
+  document.getElementById("SonBox").style.display =
+    paper !== "" ? "block" : "none";
+}
 function addPaper(paperList) {
   let paperSelect = document.getElementById("paper");
 
