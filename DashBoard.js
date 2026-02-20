@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       const data = await res.json();
-
+      console.log(data);
       if (res.ok) {
         document.getElementById("message").innerHTML =
           "✅ File Uploaded Successfully!";

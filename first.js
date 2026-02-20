@@ -121,13 +121,13 @@ function checkAndShowError() {
    SHOW DOWNLOAD (MAIN FILTER)
 ================================= */
 async function showDownload() {
-  if (checkAndShowError()) return; // stop if incomplete
+  if (checkAndShowError()) return;
 
   const branch = document.getElementById("branch").value.toLowerCase();
   const year = document.getElementById("year").value.toLowerCase();
   const semester = document.getElementById("semester").value.toLowerCase();
   const paper = document.getElementById("paper").value.toLowerCase();
-  const son = document.getElementById("son").value;
+  const son = document.getElementById("son").value.toLowerCase();
 
   const downloadBox = document.getElementById("downloadBox");
   downloadBox.style.display = "block";
@@ -141,12 +141,13 @@ async function showDownload() {
     const paperList = document.getElementById("paperList");
     paperList.innerHTML = "";
 
-    if (!data || data.length === 0) {
-      paperList.innerHTML = "<p style='color:red;'>❌ This question paper and solution are not available at this time.</p>";
+    if (!data.papers || data.papers.length === 0) {
+      paperList.innerHTML =
+        "<p style='color:red;'>❌ This question paper and solution are not available at this time.</p>";
       return;
     }
 
-    data.forEach((item) => {
+    data.papers.forEach((item) => {
       const div = document.createElement("div");
       div.innerHTML = `
         <p><strong>${item.type.toUpperCase()}</strong></p>
@@ -162,7 +163,6 @@ async function showDownload() {
     console.error("Error fetching papers:", error);
   }
 }
-
 /* ==============================
    EVENT LISTENERS
 ================================= */
@@ -184,10 +184,15 @@ document.querySelectorAll("#branch, #year, #semester, #paper, #son")
 /* ==============================
    DIRECT DOWNLOAD
 ================================= */
-function downloadFile(fileName) {
-  window.location.href = `http://localhost:5000/api/download/${fileName}`;
-}
+async function downloadFile(fileUrl) {
+  const res = await fetch(
+    `http://localhost:5000/api/download?fileUrl=${encodeURIComponent(fileUrl)}`
+  );
 
+  const data = await res.json();
+
+  window.location.href = data.url;
+}
 /* ==============================
    BACK BUTTON
 ================================= */
